@@ -97,7 +97,7 @@
 
 <script>
   // select every one of the checkboxes, to listen for when they get checked
-  const checkboxes = document.querySelectorAll('.inbox input[ type="checkbox"]')
+  const checkboxes = document.querySelectorAll('.inbox input[ type="checkbox"]');
 
 // using let as it will be re assigned
 let lastChecked;
@@ -105,12 +105,23 @@ let lastChecked;
   function handleCheck(e) {
     // check if they had the shift key down
     // and check if they are checking it
+    let inBetween = false;
     if(e.shiftkey && this.checked) {
       // go ahead and do what we please
-    }
+      //loop over every single checkbox
+      checkboxes.forEach(checkbox => {
+      if (checkbox === this || checkbox === lastChecked) {
+        inBetween = !inBetween;
+        console.log('Starting to check them in between!');
 
-    lastChecked = this;
+        if (inBetween) {
+        checkbox.checked = true;
+      }
+    });
   }
+
+  lastChecked = this;
+}
 
   // loop over each one, add event listener on click
   checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
