@@ -8,6 +8,13 @@ const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
 
 // Build Our Functions //
+function togglePlay() {
+  if(video.paused) {
+    video.play();
+  } else {
+  video.pause();
+  }
+}
 
 
 // Hook Up the event Listeners //
