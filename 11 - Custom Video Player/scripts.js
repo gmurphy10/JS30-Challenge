@@ -39,10 +39,6 @@ function scrub(e) {
   video.currentTime = scrubTime;
 }
 
-function scrubMove(e) {
-  scrubTime
-}
-
 // Hook Up the event Listeners //
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
@@ -58,8 +54,8 @@ ranges.forEach(range => range.addEventListener('change',
 
 let mousedown = false;
 progress.addEventListener('click', scrub);
-progress.addEventListener('mousemove', scrub);
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
-progress.addEventListener('mouseup', () => mousedown = true);
+progress.addEventListener('mouseup', () => mousedown = false);
 
 
