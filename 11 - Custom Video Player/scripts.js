@@ -22,12 +22,11 @@ function updateButton() {
 }
 
 function skip() {
-  console.log(this.dataset.skip);
   video.currentTime += parseFloat(this.dataset.skip);
 }
 
 function handleRangeUpdate() {
-  console.log(this.value);
+  video[this.name] = this.value;
 }
 
 // Hook Up the event Listeners //
