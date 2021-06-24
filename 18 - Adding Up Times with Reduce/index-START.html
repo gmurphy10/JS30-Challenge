@@ -194,8 +194,14 @@
   })
   .reduce((total, vidSeconds) => total + vidSeconds);
 
-  lets secondsLeft = seconds;
+  let secondsLeft = seconds;
   const hours = Math.floor(secondsLeft / 3600);
+  secondsLeft = secondsleft % 3600;
+
+  const mins = Math.floor(secondsLeft / 60);
+  secondsLeft = secondsleft % 3600;
+
+  console.log(hours, mins, secondsleft);
 
 
 </script>
