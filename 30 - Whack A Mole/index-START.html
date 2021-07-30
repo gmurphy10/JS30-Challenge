@@ -36,9 +36,10 @@
   const holes = document.querySelectorAll('.hole');
   const scoreBoard = document.querySelector('.score');
   const moles = document.querySelectorAll('.mole');
+  let lastHole;
 
 // function that gives us a random amount of time between min & max
-  function randTime(min, max) {
+  function randomTime(min, max) {
     return Math.random.round(Math.random() * (max - min) + min);
   }
 
@@ -46,7 +47,13 @@
 function randomHole(holes) {
   const idx = Math.floor(Math.random() * holes.length);
   const hole = holes[idx];
-  console.log(hole);
+  if(hole === lastHole) {
+    console.log('Ah nah thats the wrong one');
+    return randomHole(holes);
+  }
+  lastHole = hole;
+  return hole;
+
 }
 
 </script>
