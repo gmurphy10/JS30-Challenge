@@ -40,7 +40,7 @@
 
 // function that gives us a random amount of time between min & max
   function randomTime(min, max) {
-    return Math.random.round(Math.random() * (max - min) + min);
+    return Math.round(Math.random() * (max - min) + min);
   }
 
 // function to select a hole for mole to pop up from
@@ -55,6 +55,14 @@ function randomHole(holes) {
   return hole;
 
 }
+
+function peep() {
+  const time = randomTime(200, 1000);
+  const hole = randomHole(holes);
+  hole.classList.add('up');
+}
+
+
 
 </script>
 </body>
