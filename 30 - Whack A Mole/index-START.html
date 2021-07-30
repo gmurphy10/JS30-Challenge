@@ -38,6 +38,7 @@
   const moles = document.querySelectorAll('.mole');
   let lastHole;
   let timeUp = false;
+  let score = 0
 
 // function that gives us a random amount of time between min & max
   function randomTime(min, max) {
@@ -75,6 +76,15 @@ function startGame() {
     peep();
     setTimeout(() => timeUp = true, 10000)
   }
+
+function bonk(e) {
+    if(!e.isTrusted) return; // cheater!
+    score++;
+    this.parentNode.classList.remove('up');
+    scoreBoard.textContent = score;
+  }
+
+moles.forEach(mole => mole.addEventListener('click', bonk));
 
 
 </script>
